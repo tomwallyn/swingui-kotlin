@@ -19,7 +19,23 @@ fun main(args: Array<String>) = runBlocking<Unit> {
         background.autoChangeBackground()
     }
 
-    launch(newSingleThreadContext("ApplicationVector")) {
-        vector.run()
+    launch(newSingleThreadContext("ApplicationRomainMove")) {
+        vector.romainMove()
+    }
+    launch(newSingleThreadContext("ApplicationTomMove")) {
+        vector.tomMove()
+    }
+    launch(newSingleThreadContext("ApplicationYoannMove")) {
+        vector.yoannMove()
+    }
+
+    launch(newSingleThreadContext("ApplicationRomain")) {
+        vector.romainDance()
+    }
+    launch(newSingleThreadContext("ApplicationTom")) {
+        vector.tomDance()
+    }
+    launch(newSingleThreadContext("ApplicationYoann")) {
+        vector.yoannDance()
     }
 }
