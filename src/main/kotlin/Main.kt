@@ -6,7 +6,10 @@ fun main(args: Array<String>) = runBlocking<Unit> {
     val vector = Vector(runner.getInterface())
     val song = BackgroundSongService()
     runner.getInterface().pack()
-
+    runner.firstMenu()
+    while (!runner.isClicked){
+        runner.runnerMenu()
+    }
     launch(newSingleThreadContext("ApplicationBackgroundSong")) {
         song.test()
     }
@@ -38,4 +41,5 @@ fun main(args: Array<String>) = runBlocking<Unit> {
     launch(newSingleThreadContext("ApplicationYoann")) {
         vector.yoannDance()
     }
+
 }
