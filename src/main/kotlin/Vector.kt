@@ -1,7 +1,4 @@
-import java.awt.Color
-import java.awt.Dimension
-import java.awt.Graphics
-import java.awt.Image
+import java.awt.*
 import java.io.File
 import javax.imageio.ImageIO
 import javax.swing.ImageIcon
@@ -15,6 +12,8 @@ class Vector(var frame: JFrame) {
     private lateinit var panel: JPanel
     private lateinit var panel2: JPanel
     private lateinit var panel3: JPanel
+    private lateinit var panel_trans: JPanel
+    private lateinit var panel3_trans: JPanel
 
 
     init {
@@ -27,6 +26,11 @@ class Vector(var frame: JFrame) {
         panel.preferredSize = Dimension(900, 900)
         panel.setLocation(400,-200)
 
+        panel_trans = JPanel()
+        panel_trans.background = Color(1, 1, 1, 1)
+        panel_trans.preferredSize = Dimension(900, 900)
+        panel_trans.setLocation(-500,-200)
+
         panel2 = JPanel()
         panel2.background = Color(1, 1, 1, 1)
         panel2.preferredSize = Dimension(900, 900)
@@ -35,9 +39,13 @@ class Vector(var frame: JFrame) {
         panel3 = JPanel()
         panel3.background = Color(1, 1, 1, 1)
         panel3.preferredSize = Dimension(900, 900)
-        panel.setLocation(-200,200)
-    }
+        panel3.setLocation(-200,400)
 
+        panel3_trans = JPanel()
+        panel3_trans.background = Color(1, 1, 1, 1)
+        panel3_trans.preferredSize = Dimension(900, 900)
+        panel3_trans.setLocation(-400,50)
+    }
 
     fun romainMove() {
         frame.add(panel2)
@@ -59,6 +67,16 @@ class Vector(var frame: JFrame) {
 
     }
 
+    fun tomMoveTrans() {
+        frame.add(panel_trans)
+        val x = true
+        while (x) {
+            moveInRandomDirectionBackward(panel_trans)
+            moveInRandomDirection(panel_trans)
+        }
+
+    }
+
     fun yoannMove() {
         frame.add(panel3)
         val x = true
@@ -69,9 +87,20 @@ class Vector(var frame: JFrame) {
 
     }
 
+    fun yoannMoveTrans() {
+        frame.add(panel3_trans)
+        val x = true
+        while (x) {
+            moveInRandomDirectionBackward(panel3_trans)
+            moveInRandomDirection(panel3_trans)
+        }
+
+    }
+
+
 
     fun moveInRandomDirection(p: JPanel) {
-        var newX = 400
+        var newX = (-100..400).random()
         var x = p.x
         var y = p.y
         if (newX > x) {
@@ -177,17 +206,47 @@ class Vector(var frame: JFrame) {
         }
     }
 
+    fun tomDanceTrans() {
+        val tom1 = ImageIO.read(File("src/main/kotlin/pictures/tom1-trans.png"))
+        val tom1Label = JLabel(ImageIcon(tom1))
+        tom1Label.preferredSize = Dimension(900, 900)
+        val tom2 = ImageIO.read(File("src/main/kotlin/pictures/tom2-trans.png"))
+        val tom2Label = JLabel(ImageIcon(tom2))
+        tom2Label.preferredSize = Dimension(900, 900)
+        val tom3 = ImageIO.read(File("src/main/kotlin/pictures/tom3-trans.png"))
+        val tom3Label = JLabel(ImageIcon(tom3))
+        tom3Label.preferredSize = Dimension(900, 900)
+        val tom4 = ImageIO.read(File("src/main/kotlin/pictures/tom4-trans.png"))
+        val tom4Label = JLabel(ImageIcon(tom4))
+        tom4Label.preferredSize = Dimension(900, 900)
+        var x = true
+        while (x) {
+            panel_trans.add(tom1Label)
+            java.lang.Thread.sleep(200)
+            panel_trans.remove(tom1Label)
+            panel_trans.add(tom2Label)
+            java.lang.Thread.sleep(200)
+            panel_trans.remove(tom2Label)
+            panel_trans.add(tom3Label)
+            java.lang.Thread.sleep(200)
+            panel_trans.remove(tom3Label)
+            panel_trans.add(tom4Label)
+            java.lang.Thread.sleep(200)
+            panel_trans.remove(tom4Label)
+        }
+    }
+
     fun yoannDance() {
-        val yoann1 = ImageIO.read(File("src/main/kotlin/pictures/yoann1.png"))
+        val yoann1 = ImageIO.read(File("src/main/kotlin/pictures/yoann1-trans.png"))
         val yoann1Label = JLabel(ImageIcon(yoann1))
         yoann1Label.preferredSize = Dimension(900, 900)
-        val yoann2 = ImageIO.read(File("src/main/kotlin/pictures/yoann2.png"))
+        val yoann2 = ImageIO.read(File("src/main/kotlin/pictures/yoann2-trans.png"))
         val yoann2Label = JLabel(ImageIcon(yoann2))
         yoann2Label.preferredSize = Dimension(900, 900)
-        val yoann3 = ImageIO.read(File("src/main/kotlin/pictures/yoann3.png"))
+        val yoann3 = ImageIO.read(File("src/main/kotlin/pictures/yoann3-trans.png"))
         val yoann3Label = JLabel(ImageIcon(yoann3))
         yoann3Label.preferredSize = Dimension(900, 900)
-        val yoann4 = ImageIO.read(File("src/main/kotlin/pictures/yoann4.png"))
+        val yoann4 = ImageIO.read(File("src/main/kotlin/pictures/yoann4-trans.png"))
         val yoann4Label = JLabel(ImageIcon(yoann4))
         yoann4Label.preferredSize = Dimension(900, 900)
         var x = true
@@ -204,6 +263,36 @@ class Vector(var frame: JFrame) {
             panel3.add(yoann4Label)
             java.lang.Thread.sleep(200)
             panel3.remove(yoann4Label)
+        }
+    }
+
+    fun yoannDanceTrans() {
+        val yoann1 = ImageIO.read(File("src/main/kotlin/pictures/yoann1.png"))
+        val yoann1Label = JLabel(ImageIcon(yoann1))
+        yoann1Label.preferredSize = Dimension(900, 900)
+        val yoann2 = ImageIO.read(File("src/main/kotlin/pictures/yoann2.png"))
+        val yoann2Label = JLabel(ImageIcon(yoann2))
+        yoann2Label.preferredSize = Dimension(900, 900)
+        val yoann3 = ImageIO.read(File("src/main/kotlin/pictures/yoann3.png"))
+        val yoann3Label = JLabel(ImageIcon(yoann3))
+        yoann3Label.preferredSize = Dimension(900, 900)
+        val yoann4 = ImageIO.read(File("src/main/kotlin/pictures/yoann4.png"))
+        val yoann4Label = JLabel(ImageIcon(yoann4))
+        yoann4Label.preferredSize = Dimension(900, 900)
+        var x = true
+        while (x) {
+            panel3_trans.add(yoann1Label)
+            java.lang.Thread.sleep(200)
+            panel3_trans.remove(yoann1Label)
+            panel3_trans.add(yoann2Label)
+            java.lang.Thread.sleep(200)
+            panel3_trans.remove(yoann2Label)
+            panel3_trans.add(yoann3Label)
+            java.lang.Thread.sleep(200)
+            panel3_trans.remove(yoann3Label)
+            panel3_trans.add(yoann4Label)
+            java.lang.Thread.sleep(200)
+            panel3_trans.remove(yoann4Label)
         }
     }
 

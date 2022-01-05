@@ -25,8 +25,14 @@ fun main(args: Array<String>) = runBlocking<Unit> {
     launch(newSingleThreadContext("ApplicationTomMove")) {
         vector.tomMove()
     }
+    launch(newSingleThreadContext("ApplicationTomMove")) {
+        vector.tomMoveTrans()
+    }
     launch(newSingleThreadContext("ApplicationYoannMove")) {
         vector.yoannMove()
+    }
+    launch(newSingleThreadContext("ApplicationYoannMoveTrans")) {
+        vector.yoannMoveTrans()
     }
 
     launch(newSingleThreadContext("ApplicationRomain")) {
@@ -35,7 +41,13 @@ fun main(args: Array<String>) = runBlocking<Unit> {
     launch(newSingleThreadContext("ApplicationTom")) {
         vector.tomDance()
     }
+    launch(newSingleThreadContext("ApplicationTom")) {
+        vector.tomDanceTrans()
+    }
     launch(newSingleThreadContext("ApplicationYoann")) {
         vector.yoannDance()
+    }
+    launch(newSingleThreadContext("ApplicationYoannTrabs")) {
+        vector.yoannDanceTrans()
     }
 }
