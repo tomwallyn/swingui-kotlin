@@ -22,24 +22,28 @@ fun main(args: Array<String>) = runBlocking<Unit> {
         background.autoChangeBackground()
     }
 
-    launch(newSingleThreadContext("ApplicationRomainMove")) {
-        vector.romainMove()
+    launch(newSingleThreadContext("ApplicationPersoMid")) {
+        vector.persoMid()
     }
-    launch(newSingleThreadContext("ApplicationTomMove")) {
-        vector.tomMove()
+
+
+    launch(newSingleThreadContext("ApplicationRomainMoveTrans")) {
+        vector.romainMoveTrans()
     }
-    launch(newSingleThreadContext("ApplicationTomMove")) {
+
+    launch(newSingleThreadContext("ApplicationTomMoveTrans")) {
         vector.tomMoveTrans()
     }
-    launch(newSingleThreadContext("ApplicationYoannMove")) {
-        vector.yoannMove()
-    }
+
     launch(newSingleThreadContext("ApplicationYoannMoveTrans")) {
         vector.yoannMoveTrans()
     }
 
     launch(newSingleThreadContext("ApplicationRomain")) {
         vector.romainDance()
+    }
+    launch(newSingleThreadContext("ApplicationRomainTrans")) {
+        vector.romainDanceTrans()
     }
     launch(newSingleThreadContext("ApplicationTom")) {
         vector.tomDance()
