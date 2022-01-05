@@ -47,7 +47,7 @@ fun main(args: Array<String>) = runBlocking<Unit> {
     launch(newSingleThreadContext("ApplicationYoann")) {
         vector.yoannDance()
     }
-    launch(newSingleThreadContext("ApplicationYoannTrabs")) {
+    launch(newSingleThreadContext("ApplicationYoannTrans")) {
         vector.yoannDanceTrans()
     }
 }
